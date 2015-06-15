@@ -1,0 +1,22 @@
+<ion-view view-title="Photo">
+    <ion-content>
+
+
+        <div class="list card">
+            <div class="item item-divider">
+                Reminder Preview
+            </div>
+            <div class="item item-image" ng-click="getPhoto()">
+                <img ng-src="{{photoUri}}" style="min-height: 250px"></img>
+            </div>
+
+            <a class="item item-icon-left assertive" href="#">
+                <i class="icon ion-calendar" ng-click="getDatePicker()"></i> {{reminderDate || 'Tap to set date'}}
+            </a>
+        </div>
+        <div class="item item-divider">
+            <button class="button button-positive"> Create Reminder</button>
+        </div>
+
+    </ion-content>
+</ion-view>
