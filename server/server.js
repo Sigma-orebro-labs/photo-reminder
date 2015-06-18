@@ -9,7 +9,7 @@ var config = require("./config")["development"];
 require("./express")(app, config); 
 
 // configure mongoDb/Mongoose connection
-require("./mongoose")(config);  
+require("./mongoose-config")(config);  
     
 // configure routing.  
 require("./routes")(app);  

@@ -1,11 +1,17 @@
-var mongoose = require("./mongoose"); 
-
+var mongoose = require("mongoose");  
+ var models = require('./models')(); 
 
 module.exports = function(app){
+   
+  
+    
     app.get('/Reminders', function(req, res, next){
-        
-        
         res.setHeader('Content-Type', 'application/json');
-        res.send(JSON.stringify( Reminder.findOne(), null, 3));
+        
+        console.log(models.Reminder.find({}, function(err, results){
+         res.send(results, null, 3);
+        })); 
+        
+       
     });
 } 
