@@ -1,6 +1,13 @@
-doctype
-html
-    head
-    body
-        h1 Hello World
-        
+extends layout
+
+block content
+  h1= title
+  p Welcome to #{title}
+  
+  a(href="/auth/google") Login with Google. 
+  
+  form(method="post", enctype="multipart/form-data" action="image/upload")
+    input(type="file", name="picture")
+    input(type="date", name="reminderDate")
+    input(type="submit", value="Submit")   
+   

@@ -1,0 +1,14 @@
+extends layout
+
+block content
+
+    div
+       h1 #{reminders}
+    
+    hr
+    div
+        h1 Create Reminder
+        form(method="post", enctype="multipart/form-data" action="create")
+            input(type="file", name="picture")
+            input(type="date", name="reminderDate")
+            input(type="submit", value="Submit")  
