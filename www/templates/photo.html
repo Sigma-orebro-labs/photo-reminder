@@ -7,28 +7,32 @@
                 Reminder Preview
             </div>
             <div class="item item-image" ng-click="getPhoto()">
-                <img ng-src="{{photoUri}}" style="min-height: 250px"></img>
+                <img ng-src="{{photoUri || 'img/camera-bg.png'}}" style="min-height: 250px"></img>
             </div>
-
             <a class="item item-icon-left assertive " href="#">
-                <i class="icon ion-calendar" ng-click="getDatePicker()"></i> {{reminderDate || 'Tap to set date'}}
+                <div ngf-select ng-model="picFile" ngf-change="fileUpdated($files, $event)" name="picFile" required=""> <i class="icon ion-upload"></i> {{picFile.name || 'Select Image From Gallery'}} </div>
             </a>
             <br>
-            <a class="item item-icon-left assertive " href="#">
-                <div ngf-select ng-model="picFile" ngf-change="fileUpdated($files, $event)" name="picFile" required=""> <i class="icon ion-upload"></i> {{picFile.name || 'Select From Gallery'}} </div>
+            <a class="item item-icon-left assertive " href="#" ng-click="getDatePicker()">
+                <i class="icon ion-calendar"></i> {{ formData.date || 'Tap to set date'}}
             </a>
+            <p ng-show="noCordovaDate">
+                No Cordova Available in current environment. Reminder Date set to Current Time.
+            </p>
+
+
         </div>
 
         <ul class="list">
             <li class="item">
                 <label> Title (Optional)
-                    <input type="text" ng-model="title"> 
+                    <input type="text" ng-model="formData.title" />
                 </label>
             </li>
         </ul>
-        
+
         <div class="item item-divider">
-            <button class="button button-positive" ng-click="createReminder()"> Create Reminder</button>
+            <button class="button button-positive" ng-click="createReminder()"> Create {{formData.title}}</button>
         </div>
 
     </ion-content>
