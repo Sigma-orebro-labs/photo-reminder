@@ -10,12 +10,25 @@
                 <img ng-src="{{photoUri}}" style="min-height: 250px"></img>
             </div>
 
-            <a class="item item-icon-left assertive" href="#">
+            <a class="item item-icon-left assertive " href="#">
                 <i class="icon ion-calendar" ng-click="getDatePicker()"></i> {{reminderDate || 'Tap to set date'}}
             </a>
+            <br>
+            <a class="item item-icon-left assertive " href="#">
+                <div ngf-select ng-model="picFile" ngf-change="fileUpdated($files, $event)" name="picFile" required=""> <i class="icon ion-upload"></i> {{picFile.name || 'Select From Gallery'}} </div>
+            </a>
         </div>
+
+        <ul class="list">
+            <li class="item">
+                <label> Title (Optional)
+                    <input type="text" ng-model="title"> 
+                </label>
+            </li>
+        </ul>
+        
         <div class="item item-divider">
-            <button class="button button-positive"> Create Reminder</button>
+            <button class="button button-positive" ng-click="createReminder()"> Create Reminder</button>
         </div>
 
     </ion-content>

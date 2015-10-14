@@ -40,8 +40,6 @@ gulp.task('watch', function() {
 });
 
 
-
-
 gulp.task('install', ['git-check'], function() {
   return bower.commands.install() 
     .on('log', function(data) {
@@ -51,10 +49,10 @@ gulp.task('install', ['git-check'], function() {
 
 
 gulp.task('bundle-js', function(){
-    gulp.src(['./src/app.js', './src/**/*.js'])
+    gulp.src(['./src/js/app.js', './src/**/*.js']) 
     .pipe(concat('app.dist.js'))
     .pipe(gulp.dest('./www/js/')); 
-});
+}); 
 
 gulp.task('git-check', function(done) {
   if (!sh.which('git')) {

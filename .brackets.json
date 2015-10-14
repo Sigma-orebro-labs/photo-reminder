@@ -1,5 +1,7 @@
 {
     "jscodehints.detectedExclusions": [
-        "D:/Projekt/photo-reminder/src/js/app.js"
+        "D:/Projekt/photo-reminder/src/js/app.js",
+        "D:/Projekt/photo-reminder/server/config.js",
+        "D:/Projekt/photo-reminder/server/mongoose.js"
     ]
 }

@@ -1,8 +1,20 @@
 <ion-view view-title="Reminders">
+
+
   <ion-content>
-      <h1> REMINDERS </h1>
-      <p> List reminders here  </p>
-      {{greeting}}
-      
+    <div class="row" ng-repeat="reminder in reminders">
+      <div class="list card col">
+        <div class="item item-divider">
+          <i class="ion ion-android-bulb"></i>{{reminder.title}}
+          <br> <i class="ion ion-clock"> </i> @ {{reminder.reminderDate | date}}
+        </div>
+        <div class="item item-image" ng-if="reminder.Picture">
+          <img ng-src="http://localhost:3000/{{reminder.Picture.imageUrl}}" alt="Reminder Image">
+        </div>
+        <div class="item item-text-wrap">
+          {{reminder.content}} 
+        </div>
+      </div>
+    </div>
   </ion-content>
 </ion-view>
