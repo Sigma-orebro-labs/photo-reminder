@@ -3,7 +3,7 @@ var Sequelize = require('Sequelize');
 module.exports = function (sequelize, DataTypes) {
   var Reminder = sequelize.define("Reminder", {
     title: Sequelize.STRING,
-    content: Sequelize.STRING,
+    content: Sequelize.TEXT,
     reminderDate: Sequelize.DATE
   }, {
       classMethods: {

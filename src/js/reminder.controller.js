@@ -17,6 +17,11 @@
                 })
             });
         }
+        
+        $scope.archive = function(){
+            
+            
+        }
 
         $scope.activate = function () {
 

@@ -201,6 +201,11 @@ angular.module('pr', ['ionic', 'ngCordova', 'ngFileUpload'])
                 })
             });
         }
+        
+        $scope.archive = function(){
+            
+            
+        }
 
         $scope.activate = function () {
 

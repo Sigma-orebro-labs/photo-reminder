@@ -4,7 +4,7 @@ var models = require('../models/');
 var passport = require('passport');
 var auth = require('../services/auth');
 var multer = require('multer')
-var upload = multer({ dest: 'public/ocr/' })
+var upload = multer({ dest: './server/ocr/' })
 var ReminderService = require('../services/reminderService');
 var Reminders = models.Reminder;
 

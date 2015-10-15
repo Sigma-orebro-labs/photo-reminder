@@ -59,7 +59,7 @@ models.sequelize.sync().then(function () {
   /* Routing configs files to use*/
   // app.use('/', routes);
   app.use('/users', usersRoutes(app, passport));
-  app.use('/image', imageRoutes);
+  // app.use('/image', imageRoutes);
   app.use('/reminder', reminderRoutes);
   app.use('/auth', authRoutes(passport)); 
   

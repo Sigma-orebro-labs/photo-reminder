@@ -4,8 +4,7 @@ module.exports = function (sequelize, DataTypes) {
   
   var Picture = sequelize.define("Picture", {
     title: Sequelize.STRING,
-    imageUrl: Sequelize.STRING,
-    imageBlob: Sequelize.BLOB
+    imageUrl: Sequelize.STRING
   }, {
       classMethods: {
         associate: function (models) {
