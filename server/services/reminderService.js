@@ -32,16 +32,19 @@ prototype.assignImage = function (reminderId, filePath, user) {
 			src.on('end', function (err, data) {
 				
 				/* File is uploaded OK, create db entry */
+
 				models.Picture.create({
 					ReminderId: reminderId,
 					imageUrl: staticUrlPath,
 					title: 'test'
 				}).then(function (createdImage) {
 					/* Db entry created, parse image and update 'content'-column for reminder*/
+
 					try {
 						var ocrParser = new ImageParser();
 						ocrParser.parsePicture(target_path)
 						// success
+						/*find and update the appropriate reminder entry */
 							.then(function (parsedText) {
 								// 
 								models.Reminder.update({
@@ -63,12 +66,12 @@ prototype.assignImage = function (reminderId, filePath, user) {
 					catch (ex) {
 						deferred.reject('Image Parsing Failed: ', ex);
 					}
-					/*find and update the appropriate reminder entry */
+
 				});
 
 			});
 		}
-		
+
 		else {
 			deferred.reject('Failed to create directory: ', err);
 			throw 'Failed to create directory';

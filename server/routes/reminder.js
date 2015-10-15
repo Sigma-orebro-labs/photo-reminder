@@ -8,7 +8,6 @@ var upload = multer({ dest: './server/ocr/' })
 var ReminderService = require('../services/reminderService');
 var Reminders = models.Reminder;
 
-
 router.get('/get', function (req, res, next) {
 	var userId = req.user.id
 	Reminders.findAll({
@@ -38,8 +37,6 @@ router.get('/list', auth.requiresAuthentication, function (req, res, next) {
 });
 
 router.post('/create', auth.requiresAuthentication, function (req, res, next) {
-	var newDate = new Date();
-	
 	// var filePath = req.file.path;
 	Reminders.create({
 		title: req.body.title,
@@ -60,7 +57,6 @@ router.post('/create', auth.requiresAuthentication, function (req, res, next) {
 
 
 router.post('/uploadImage', auth.requiresAuthentication, upload.single('reminderImage'), function (req, res, next) {
-
 	var userId = req.user.id;
 	var filePath = req.file.path;
 	var reminderId = req.body.reminderId;
@@ -78,6 +74,13 @@ router.post('/uploadImage', auth.requiresAuthentication, upload.single('reminder
 				newReminder: reminder,
 				hasImage: true,
 			});
+		}, function (rejection) {
+			res.send({
+				created: true,
+				newReminder: reminder,
+				hasImage: false
+			});
+
 		});
 
 	});

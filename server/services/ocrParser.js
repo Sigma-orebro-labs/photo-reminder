@@ -10,20 +10,25 @@ function ImageParser() {
 
 prototype.parsePicture = function (pictureUrl) {
 
-    var options = {
-        l: 'swe',
-        psm: 6
-    };
+    try {
+        var options = {
+            l: 'swe',
+            psm: 6
+        };
 
-    var deferred = q.defer();
-    tesseract.process(pictureUrl, options, function (err, text) {
-        if (err) {
-            console.error(err);
-            deferred.reject(err);
-        } else {
-            deferred.resolve(text);
-        }
-    });
+        var deferred = q.defer();
+        tesseract.process(pictureUrl, options, function (err, text) {
+            if (err) {
+                console.error(err);
+                deferred.reject(err);
+            } else {
+                deferred.resolve(text);
+            }
+        });
+    }
+    catch (ex) {
+        deferred.reject(ex);
+    }
     return deferred.promise;
 }
 
